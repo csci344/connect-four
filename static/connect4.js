@@ -2,7 +2,7 @@ const PLAYER1 = "red";
 
 const PLAYER2 = "yellow";
 
-function createBoard(board) {
+const createBoard = board => {
   // Generate board.
     for (let column = 0; column < 7; column++) {
         const columnElement = document.createElement("div");
@@ -37,4 +37,4 @@ const playMove = (board, player, column, row) => {
     }
 }
 
-export { PLAYER1, PLAYER2, createBoard, playMove };
+export { createBoard, playMove };
