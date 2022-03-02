@@ -1,6 +1,5 @@
-#!/usr/bin/env python
 # https://websockets.readthedocs.io/en/latest/intro/tutorial2.html
-
+# To test: python3 -m websockets ws://localhost:8001/
 import os
 import signal
 import asyncio
@@ -20,7 +19,6 @@ WATCH = {}
 async def error(websocket, message):
     """
     Send an error message.
-
     """
     event = {
         "type": "error",
@@ -32,7 +30,6 @@ async def error(websocket, message):
 async def replay(websocket, game):
     """
     Send previous moves.
-
     """
     # Make a copy to avoid an exception if game.moves changes while iteration
     # is in progress. If a move is played while replay is running, moves will
@@ -93,7 +90,9 @@ async def start(websocket):
     # Initialize a Connect Four game, the set of WebSocket connections
     # receiving moves from this game, and secret access tokens.
     game = Connect4()
+    print("WS:", websocket)
     connected = {websocket}
+    print("CURLY BRACE:", connected)
 
     join_key = secrets.token_urlsafe(12)
     JOIN[join_key] = game, connected
