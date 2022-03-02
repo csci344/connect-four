@@ -73,12 +73,21 @@ function sendMoves(board, websocket) {
   });
 }
 
+function getWebSocketServer() {
+    if (window.location.href.indexOf('github.io') != -1) {
+      return "wss://chat-server-flask.herokuapp.com/";
+    } else {
+        return "ws://localhost:8001/";
+    }
+  }
+
+
 window.addEventListener("DOMContentLoaded", () => {
   // Initialize the UI.
   const board = document.querySelector(".board");
   createBoard(board);
   // Open the WebSocket connection and register event handlers.
-  const websocket = new WebSocket("ws://localhost:8001/");
+  const websocket = new WebSocket(getWebSocketServer());
   initGame(websocket);
   receiveMoves(board, websocket);
   sendMoves(board, websocket);
