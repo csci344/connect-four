@@ -1,5 +1,5 @@
 # https://websockets.readthedocs.io/en/latest/intro/tutorial2.html
-# To test: python3 -m websockets ws://localhost:8001/
+# To test: python3 -m websockets ws://localhost:8081/
 import os
 import signal
 import asyncio
@@ -192,7 +192,7 @@ async def main():
     stop = loop.create_future()
     loop.add_signal_handler(signal.SIGTERM, stop.set_result, None)
 
-    port = int(os.environ.get("PORT", "8001"))
+    port = int(os.environ.get("PORT", "8081"))
     async with websockets.serve(handler, "", port):
         await stop
 

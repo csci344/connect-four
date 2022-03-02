@@ -77,7 +77,7 @@ const getWebSocketServer = () => {
     if (window.location.href.indexOf('github.io') != -1) {
         return "wss://chat-server-flask.herokuapp.com/";
     } else {
-        return "ws://localhost:8001/";
+        return "ws://localhost:8081/";
     }
 };
 

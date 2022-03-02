@@ -1,4 +1,4 @@
-# To test: python3 -m websockets ws://localhost:8001/
+# To test: python3 -m websockets ws://localhost:8081/
 import asyncio
 import websockets
 
@@ -9,7 +9,7 @@ async def handler(websocket):
 
 
 async def main():
-    async with websockets.serve(handler, "", 8001):
+    async with websockets.serve(handler, "", 8081):
         await asyncio.Future()  # run forever
 
 
