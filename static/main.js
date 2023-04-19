@@ -75,7 +75,7 @@ const sendMoves = (board, websocket) => {
 
 const getWebSocketServer = () => {
     if (window.location.href.indexOf('github.io') != -1) {
-        return "wss://connect-four-webdev.herokuapp.com/";
+        return "wss://connect-four-344.herokuapp.com/";
     } else {
         return "ws://localhost:8081/";
     }
